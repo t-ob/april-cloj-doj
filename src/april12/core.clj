@@ -1,4 +1,5 @@
-(ns april12.core)
+(ns april12.core
+  (:use [quil.core]))
 
 
 ;; z^2 + c = (x + iy)^2 + c
@@ -7,19 +8,13 @@
 (ns for-the-glory-of-art
   (:use quil.core))
 
-(defn setup []
-  (smooth)                          ;;Turn on anti-aliasing
-  (frame-rate 1)                    ;;Set framerate to 1 FPS
-  (background 200))                 ;;Set the background colour to
 
 (def screen (map #(* 10 %) (range 1 30)))
 
-(ns for-the-glory-of-art
-  (:use quil.core))
 
 (defn setup []
   (smooth)                          ;;Turn on anti-aliasing
-  (frame-rate 1)                    ;;Set framerate to 1 FPS
+  (frame-rate 10)                    ;;Set framerate to 1 FPS
   (background 200))                 ;;Set the background colour to
                                     ;;  a nice shade of grey.
 (defn draw []
@@ -30,10 +25,10 @@
   (let [diam (random 100)           ;;Set the diameter to a value between 0 and 100
         x    (random (width))       ;;Set the x coord randomly within the sketch
         y    (random (height))]     ;;Set the y coord randomly within the sketch
-    (ellipse x y diam diam)))       ;;Draw a circle at x y with the correct diameter
+    (point x y)))       ;;Draw a circle at x y with the correct diameter
 
 (defsketch example                  ;;Define a new sketch named example
   :title "Oh so many grey circles"  ;;Set the title of the sketch
   :setup setup                      ;;Specify the setup fn
   :draw draw                        ;;Specify the draw fn
-  :size [323 200])                  ;;You struggle to beat the golden ratio
+  :size [500 400])                  ;;You struggle to beat the golden ratio
